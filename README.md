@@ -1,3 +1,4 @@
-## Bloccit: A Reddit clone to teach the fundamentals of web development using Rails 4
-Made with my mentor at Bloc[www.bloc.io] and deployed at 
-[link](http://devtheory-bloccit.herokuapp.com)
+## Bloccit: A Reddit clone to teach the fundamentals of web development and Rails 4.
+
+Made with my mentor **Chris** at Bloc[www.bloc.io] and deployed  
+[Here](http://devtheory-bloccit.herokuapp.com)
