@@ -33,10 +33,13 @@ posts = Post.all
 
 100.times do
   Comment.create(
+    user_id: users.sample.id,
     post: posts.sample,
     body: Faker::Lorem.paragraph
     )
 end
+
+comments = Comment.all
 
 #Create an admin user
 admin = User.new(
@@ -69,5 +72,6 @@ member.save
 
 puts "Seed finished"
 puts "#{User.count} users created"
+puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"

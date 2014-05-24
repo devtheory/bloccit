@@ -3,16 +3,20 @@ class PostsController < ApplicationController
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
+    @comments = @post.comments #comment?
+    @comment = Comment.new
   end
 
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
+    #@comments = Comment.where(post_id: params[:id]) #comment?
     authorize @post
   end
 
   def create
     @topic = Topic.find(params[:topic_id])
+    #@comments = Comment.where(post_id: params[:id]) #comments?
     @post = current_user.posts.build(post_params)
     @post.topic = @topic
     authorize @post
@@ -27,12 +31,14 @@ class PostsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:topic_id])
+    @comments = Comment.where(post_id: params[:id]) #comments?
     @post = Post.find(params[:id])
     authorize @post
   end
 
   def update
     @topic = Topic.find(params[:topic_id])
+    @comments = Comment.where(post_id: params[:id]) #comments?
     @post = Post.find(params[:id])
     authorize @post
     if @post.update_attributes(post_params)
