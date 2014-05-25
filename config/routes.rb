@@ -8,7 +8,7 @@ Bloccit::Application.routes.draw do
   #nested routes
   resources :topics do
     resources :posts, except: [:index] do
-      resources :comments, only: [:create, :new]
+      resources :comments, only: [:create, :destroy]
     end
   end
   

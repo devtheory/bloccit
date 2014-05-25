@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
-    #authorize @topic //removed when adding @posts scope
+    authorize @topic 
   end
 
   def edit
@@ -39,6 +39,21 @@ class TopicsController < ApplicationController
     else
       flash[:error] = "There was an error updating."
       render :edit
+    end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+    name = @topic.name
+
+    authorize @topic
+
+    if @topic.destroy
+      flash[:notice] = "\"#{name}\" was deleted successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
     end
   end
 
