@@ -10,8 +10,8 @@
     </div>
   <% end %>
   <%= form_group_tag(comment.errors[:body]) do %>
-    <%= f.label :body %>
-    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
+    <%= f.label :comment %>
+    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter your comment" %>
   <% end %>
   <div class="form-group">
     <%= f.submit "Add comment", class: 'btn btn-success' %>

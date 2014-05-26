@@ -1,5 +1,7 @@
 <h1>Topics</h1>
-
+  <% if policy(Topic.new).create? %>
+    <%= link_to "New Topic", new_topic_path, style: "margin-bottom:10px", class: 'btn btn-success' %>
+  <% end %>
 <div class="row">
   <div class="col-md-8">
     <% @topics.each do |topic| %>
@@ -16,10 +18,4 @@
     <% end %>
     <%= will_paginate @topics %>
   </div>
-  <div class="col-md-4">
-    <% if policy(Topic.new).create? %>
-      <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-    <% end %>
-  </div>
-
 </div>

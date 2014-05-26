@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-6">
     <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
     <h1><%= markdown @post.title %></h1> 
     <small>
@@ -10,7 +10,7 @@
     <div class="img-responsive"><%= image_tag(@post.image.url) if @post.image? %> </div>
     <p><%= markdown @post.body.to_s %></p>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-6" style="margin-top:10px">
     <% if policy(@post).edit? %>
       <%= link_to "Edit post", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
@@ -20,7 +20,7 @@
     <div>
       <h3><%= pluralize(@post.points, 'point') %></h3>
       <small>
-        <%= pluralize(@post.up_votes, 'up vote') %>
+        <%= pluralize(@post.up_votes, 'up vote') %>, 
         <%= pluralize(@post.down_votes, 'down vote') %>
       </small>
     </div>
