@@ -12,10 +12,13 @@ class CommentsController < ApplicationController
     authorize @comment
 
     if @comment.save
-      redirect_to [@topic, @post], notice: "Comment posted sucessfully!"
+      flash[:notice] = "Comment posted sucessfully!"
     else
       flash[:error] = "Comment failed. Please try again."
-      redirect_to [@topic, @post]
+    end
+
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
     end
   end
 
