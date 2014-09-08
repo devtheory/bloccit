@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
     respond_with(@comment) do |f|
       f.html { redirect_to [@topic, @post] }
     end
+    
   end
 
   def destroy
