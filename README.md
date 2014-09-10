@@ -1,6 +1,6 @@
 ## Bloccit: A community-sourced application for users to discuss anything.
 
-Bloccit is a Ruby on Rails application. It uses Devise for authentication and Cloudinary to handle image uploads.
+Bloccit is a Ruby on Rails application. It allows users to share their thoughts with the world! It uses Devise for authentication and Cloudinary to handle image uploads.
 Bloccit is deployed to Heroku [Here](http://devtheory-bloccit.herokuapp.com)
 
 Setup
